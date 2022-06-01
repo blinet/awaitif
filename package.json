@@ -1,0 +1,26 @@
+{
+  "name": "awaitif",
+  "version": "1.0.0",
+  "description": "It's a package that makes await more useful and it's much more useful for ordering the conditions which requires time, so in this package you can use the conditions and if the given condition is true it will go to the next lines",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "await",
+    "if",
+    "awaitif",
+    "conditions",
+    "condition"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/4i8/awaitif.git"
+  },
+  "bugs": {
+    "url": "https://github.com/4i8/awaitif/issues"
+  },
+  "homepage": "https://github.com/4i8/awaitif#readme",
+  "license": "Apache-2.0",
+  "author": "Arth"
+}
