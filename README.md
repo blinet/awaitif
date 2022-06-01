@@ -31,6 +31,7 @@ const awaitif = require("awaitif");
 const awif = new awaitif();
 ```
 
+
 > **Options**
 
 ```js
