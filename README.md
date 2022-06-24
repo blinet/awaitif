@@ -1,6 +1,6 @@
 <div align="center">
   <p>
- <a href="https://www.npmjs.com/package/awaitif"><img  src="./logo/awaitif.png" width="400" alt="awaitif" /></a>
+ <a href="https://www.npmjs.com/package/awaitif"><img  src="https://raw.githubusercontent.com/4i8/awaitif/master/logo/awaitif.png" width="400" alt="awaitif" /></a>
   </p>
   <p>
  <a href="https://github.com/arosteam"><img src="https://img.shields.io/static/v1?label=powered%20by&message=Aros&color=000636&style=for-the-badge&logo=Windows%20Terminal&logoColor=fff"/></a>
@@ -8,6 +8,15 @@
  <a href="https://www.npmjs.com/package/awaitif"><img src="https://img.shields.io/npm/dt/awaitif.svg?maxAge=3600&style=for-the-badge" alt="NPM downloads" /></a>
   </p>
 </div>
+
+# New Updates
+
+```
+Fix Some Bugs
+and remove some unused code
+- awif.condition = /*condition*/;
+
+```
 
 ## About
 
@@ -34,8 +43,11 @@ const awif = new awaitif();
 > **Options**
 
 ```js
- limit: 10000,//limit is the number of times the
- // function will be called
+ limit: 10000,
+/**
+ * {default: 10000, type: Number}
+ */
+ //limit is the time in milliseconds If time is ended and the process is not executed you will get an error
 
 ```
 
@@ -43,19 +55,16 @@ const awif = new awaitif();
 
 ```js
 /**
- * if you want to continue immediately without conditions use this
+ * follow the process
  */
 awif.continue();
 /**
- * Here you can put the condition
+ * This function puts it at the line that you do not want the compiler to cross before the condition is true
+ * @param {function} callback
  */
-awif.condition = /*condition*/;
-/**
-* This function puts it at the line that you do not want the compiler to cross before the condition is true
-* @param {function} callback
-*/
 awif.finally();
 ```
+
 ### Example
 
 ```js
@@ -72,10 +81,9 @@ function example() {
 (async () => {
   const awif = new awaitif();
   example().then((res) => {
-    awif.condition = res === "Hi";
-    //if the condition is true it will move to the next lines
-    //Or if you want to continue immediately without conditions use
-    //awif.continue();
+    if (res === "Hi") {
+      awif.continue();
+    }
   });
   await awif.finally(function (err) {
     //If you change the limit to 0,
@@ -98,9 +106,9 @@ function example() {
 
 - [Twiter](https://twitter.com/onlyarth)
 - [Github](https://github.com/4i8)
-- [Documentation](#documentation)
 
 ## License
 
 - [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
 # awaitif

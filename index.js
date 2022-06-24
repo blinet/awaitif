@@ -5,15 +5,12 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
  */
 module.exports = function awaitif(options = { limit: 10000 }) {
   /**
-   * if you want to continue immediately without conditions use this
+   * continue follow the process 
    */
+  var _continue = false;
   this.continue = async function () {
-    this.condition = true;
+    _continue = true;
   };
-  /**
-   * Here you can put the condition
-   */
-  this.condition = false;
   /**
    * This function puts it at the line that you do not want the compiler to cross before the condition is true
    * @param {function} callback
@@ -27,7 +24,8 @@ module.exports = function awaitif(options = { limit: 10000 }) {
         clearInterval(Interval);
         callback(new Error("limit exceeded"));
       }
-      if (this.condition) {
+      if (_continue) {
+        clearInterval(Interval);
         stats = false;
         return;
       }
